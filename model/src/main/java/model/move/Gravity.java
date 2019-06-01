@@ -5,6 +5,7 @@ import contract.model.ISprite;
 import contract.model.SpriteType;
 import contract.view.IPanel;
 import model.element.Background;
+import model.element.Diamond;
 
 public class Gravity implements IGravity {
 	private int ligne = 0, colonne = 0;
@@ -17,33 +18,41 @@ public class Gravity implements IGravity {
 	 */
 	public ISprite[][] makeThemFall(ISprite[][] sprites, IPanel panel) {
 		ligne = 0;
-		for (ISprite sousSpit[] : sprites) {
+		for (ISprite sousSprit[] : sprites) {
 			colonne = 0;
-			for (ISprite spit : sousSpit) {
-				if ((spit.getType() == SpriteType.DIAMOND || spit.getType() == SpriteType.BOULDER)) {
+			for (ISprite sprit : sousSprit) {
+				if ((sprit.getType() == SpriteType.DIAMOND || sprit.getType() == SpriteType.BOULDER)) {
 					if ((isSpriteNextToBackground(sprites[ligne + 1][colonne])
-							|| isSpriteAboveMonster(sprites[ligne + 1][colonne])) && !spit.HasMoved()) {
+							|| isSpriteAboveMonster(sprites[ligne + 1][colonne])) && !sprit.HasMoved()) {
 						if(isSpriteAboveMonster(sprites[ligne + 1][colonne])){
 							panel.setScore(panel.getScore() + 200);
+							for (int i=-1;i<=1;i++) {
+								for (int j=-1;j<=1;j++) {
+									sprites[ligne + 1 + i][colonne + j] = new Diamond(sprit.getX()+(j*16), sprit.getY()+16+(i*16));
+	
+								}
+							}
 						}
-						sprites[ligne][colonne] = new Background(spit.getX(), spit.getY());
-						spit.setY(spit.getY() + 16);
-						spit.setHasMoved(true);
-						spit.setBlocked(false);
-						sprites[ligne + 1][colonne] = spit;
-					} else if (isSpriteAboveCharacter(sprites[ligne + 1][colonne]) && !spit.HasMoved()
-							&& spit.isWasAboveCharacter() && !spit.isBlocked()) {
-						sprites[ligne][colonne] = new Background(spit.getX(), spit.getY());
-						spit.setY(spit.getY() + 16);
-						spit.setHasMoved(true);
-						sprites[ligne + 1][colonne] = spit;
+						else {
+							sprites[ligne][colonne] = new Background(sprit.getX(), sprit.getY());	
+							sprit.setY(sprit.getY() + 16);
+							sprit.setHasMoved(true);
+							sprit.setBlocked(false);
+							sprites[ligne + 1][colonne] = sprit;
+						}
+					} else if (isSpriteAboveCharacter(sprites[ligne + 1][colonne]) && !sprit.HasMoved()
+							&& sprit.isWasAboveCharacter() && !sprit.isBlocked()) {
+						sprites[ligne][colonne] = new Background(sprit.getX(), sprit.getY());
+						sprit.setY(sprit.getY() + 16);
+						sprit.setHasMoved(true);
+						sprites[ligne + 1][colonne] = sprit;
 						gameOver();
-					} else if (isSpriteAboveCharacter(sprites[ligne + 1][colonne]) && !spit.HasMoved()
-							&& !spit.isWasAboveCharacter()) {
-						spit.setWasAboveCharacter(true);
-						spit.setBlocked(true);
+					} else if (isSpriteAboveCharacter(sprites[ligne + 1][colonne]) && !sprit.HasMoved()
+							&& !sprit.isWasAboveCharacter()) {
+						sprit.setWasAboveCharacter(true);
+						sprit.setBlocked(true);
 					} else if(isSpriteAboveDirt(sprites[ligne + 1][colonne])){
-						spit.setWasAboveCharacter(false);
+						sprit.setWasAboveCharacter(false);
 					}
 				}
 				colonne++;
@@ -60,21 +69,21 @@ public class Gravity implements IGravity {
 	 */
 	public ISprite[][] makeThemSlide(ISprite[][] sprites) {
 		ligne = 0;
-		for (ISprite sousSpit[] : sprites) {
+		for (ISprite sousSprit[] : sprites) {
 			colonne = 0;
-			for (ISprite spit : sousSpit) {
-				if ((spit.getType() == SpriteType.DIAMOND || spit.getType() == SpriteType.BOULDER)
+			for (ISprite sprit : sousSprit) {
+				if ((sprit.getType() == SpriteType.DIAMOND || sprit.getType() == SpriteType.BOULDER)
 						&& isSpriteAboveRockOrDiamond(sprites[ligne + 1][colonne])) {
 					if (isSpriteNextToBackground(sprites[ligne][colonne + 1])
 							&& isSpriteNextToBackground(sprites[ligne + 1][colonne + 1])) {
-						sprites[ligne][colonne] = new Background(spit.getX(), spit.getY());
-						spit.setX(spit.getX() + 16);
-						sprites[ligne][colonne + 1] = spit;
+						sprites[ligne][colonne] = new Background(sprit.getX(), sprit.getY());
+						sprit.setX(sprit.getX() + 16);
+						sprites[ligne][colonne + 1] = sprit;
 					} else if (isSpriteNextToBackground(sprites[ligne][colonne - 1])
 							&& isSpriteNextToBackground(sprites[ligne + 1][colonne - 1])) {
-						sprites[ligne][colonne] = new Background(spit.getX(), spit.getY());
-						spit.setX(spit.getX() - 16);
-						sprites[ligne][colonne - 1] = spit;
+						sprites[ligne][colonne] = new Background(sprit.getX(), sprit.getY());
+						sprit.setX(sprit.getX() - 16);
+						sprites[ligne][colonne - 1] = sprit;
 					}
 				}
 				colonne++;

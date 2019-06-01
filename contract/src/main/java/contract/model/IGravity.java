@@ -5,6 +5,7 @@ import contract.view.IPanel;
 public interface IGravity {
 	/**
 	 * Do the rocks and Diamonds fall
+	 * Also handle the explosion of an enemy in case of a diamond or boulder falling onto it
 	 * @param sprites
 	 * @param audio
 	 * @return
