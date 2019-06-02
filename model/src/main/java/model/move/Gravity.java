@@ -28,8 +28,11 @@ public class Gravity implements IGravity {
 							panel.setScore(panel.getScore() + 200);
 							for (int i=-1;i<=1;i++) {
 								for (int j=-1;j<=1;j++) {
-									sprites[ligne + 1 + i][colonne + j] = new Diamond(sprit.getX()+(j*16), sprit.getY()+16+(i*16));
-	
+									if ((ligne+1+i>0) && (ligne+1+i<25) && (ligne+1+j>0) && (ligne+1+j<25)) {
+										if (sprites[ligne + 1 + i][colonne + j].getType() != SpriteType.WALL) {
+											sprites[ligne + 1 + i][colonne + j] = new Diamond(sprit.getX()+(j*16), sprit.getY()+16+(i*16));
+										}
+									}	
 								}
 							}
 						}
