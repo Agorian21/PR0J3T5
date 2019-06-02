@@ -120,14 +120,14 @@ public class Controller implements IController, Observer {
 	 */
 	@Override
 	public void update(Observable obs, Object obj) {
-		if (obs instanceof VKeyListener) {
+	/*	if (obs instanceof VKeyListener) {
 			try {
 				directionControl();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		}*/
 	}
 
 	/**

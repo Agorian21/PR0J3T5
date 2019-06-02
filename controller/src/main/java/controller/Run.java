@@ -55,7 +55,7 @@ public class Run implements LvlObservator {
 						vkeyListener.setController(controller);
 
 						GameTurn gameTurn = new GameTurn(maker, window.getPanel(), end);
-						gameTurn.loop();
+						gameTurn.loop(controller);
 
 					} catch (Exception e1) {
 						e1.printStackTrace();

@@ -22,13 +22,14 @@ public class GameTurn {
 		enemyMove = new EnemyMove();
 	}
 
-	public void loop() throws InterruptedException {
+	public void loop(Controller controller) throws InterruptedException {
 		while (loop) {
 			Thread.sleep(250);
 			maker.setAllHasMovedToFalse(maker.getSprites());
 			gravity.makeThemSlide(maker.getSprites());
 			gravity.makeThemFall(maker.getSprites(), this.panel);
 			enemyMove.toMoveTheEnemies(maker.getSprites());
+			controller.directionControl();		
 			if (gravity.isGameOver() || enemyMove.isGameOver()) {
 				end.gameOver();
 				loop = false;

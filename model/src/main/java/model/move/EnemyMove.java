@@ -38,9 +38,9 @@ public class EnemyMove implements IEnemyMove {
 					else if (isSpriteNearToBackground(sprites[ligne - 1][colonne])){
 						moveUp(sprites,sprit);
 					}	
-			//		else if (isSpriteNearToBackground(sprites[ligne][colonne + 1])){
-			//			moveRight(sprites,sprit);
-			//		}				
+					else if (isSpriteNearToBackground(sprites[ligne][colonne + 1])){
+						moveRight(sprites,sprit);
+					}				
 					else if (isSpriteNearToBackground(sprites[ligne + 1][colonne])){
 						moveDown(sprites,sprit);
 					}
@@ -88,7 +88,7 @@ public class EnemyMove implements IEnemyMove {
 	 */	
 	public ISprite[][] moveLeft(ISprite[][] sprites, ISprite sprit) {
 		sprites[ligne][colonne] = new Background(sprit.getX(), sprit.getY());
-		sprit.setY(sprit.getX() - 16);
+		sprit.setX(sprit.getX() - 16);
 		sprit.setHasMoved(true);
 		sprit.setDirection(3);
 		sprites[ligne][colonne - 1] = sprit;
@@ -102,7 +102,7 @@ public class EnemyMove implements IEnemyMove {
 	 */	
 	public ISprite[][] moveRight(ISprite[][] sprites, ISprite sprit) {
 		sprites[ligne][colonne] = new Background(sprit.getX(), sprit.getY());
-		sprit.setY(sprit.getX() + 16);
+		sprit.setX(sprit.getX() + 16);
 		sprit.setHasMoved(true);
 		sprit.setDirection(4);
 		sprites[ligne][colonne + 1] = sprit;
