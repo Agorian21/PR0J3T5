@@ -13,7 +13,6 @@ import contract.view.IPanel;
 
 public class Panel extends JPanel implements Serializable, IPanel {
 	private static final long serialVersionUID = 1L;
-	protected Image buffer[][] = new Image[25][25];
 	Font font = new Font("Courier", Font.BOLD, 15);
 	private int diamondsGet = 0, score = 0;
 	private IMapConstructor maker;

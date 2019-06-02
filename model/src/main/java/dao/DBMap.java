@@ -48,8 +48,6 @@ public class DBMap extends DBConnection{
 				String element = result.getString("elements");
 				
 				tab[y][x]=element.charAt(0);
-				System.out.format("%s,%s,%s", x,y,element);
-				System.out.println();		
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

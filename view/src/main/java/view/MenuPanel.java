@@ -9,7 +9,10 @@ import javax.swing.JPanel;
 public class MenuPanel extends JPanel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	protected Image buffer[][] = new Image[25][25];
+	private CreateMenu createMenu;
+	
 	public MenuPanel(CreateMenu createMenu) {
+		this.createMenu = createMenu;
 	}
 	
 	/* (non-Javadoc)
@@ -17,7 +20,7 @@ public class MenuPanel extends JPanel implements Serializable {
 	 */
 	@Override
 	public void paintComponent(Graphics g) {
-
+		this.createMenu.draw(g);
 	}
 
 	/**

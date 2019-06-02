@@ -49,11 +49,11 @@ public class CreateMenu extends JFrame implements Observer, ICreateMenu {
 	}
 
 	/**
-	 * Method which create the Menu
+	 * Method which creates the Menu
 	 * @throws IOException 
 	 */
 	public CreateMenu() throws IOException {
-		setSize(new Dimension(700, 400));
+		setSize(new Dimension(342, 260));
 		setResizable(false);
 		setLayout(new BorderLayout());
 		setFocusable(true);
@@ -65,7 +65,7 @@ public class CreateMenu extends JFrame implements Observer, ICreateMenu {
 			public void actionPerformed(ActionEvent event) {
 				String[] level = {"Level 1", "Level 2", "Level 3", "Level 4", "Level 5"};
 				String name = (String) JOptionPane.showInputDialog(null, "Choose your level!", "The choice",
-						JOptionPane.QUESTION_MESSAGE, null, level, level[2]);
+						JOptionPane.QUESTION_MESSAGE, null, level, level[0]);
 				if (name == "Level 1") {
 					choice = 1;				
 				}
@@ -108,6 +108,6 @@ public class CreateMenu extends JFrame implements Observer, ICreateMenu {
 	}
 	
 	public void draw(Graphics g){
-		g.drawImage(image, 175, 50, null);
+		g.drawImage(image, 0, 0, null);
 	}
 }

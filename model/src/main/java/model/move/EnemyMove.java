@@ -1,5 +1,7 @@
 package model.move;
 
+import java.util.Random;
+
 import contract.model.IEnemyMove;
 import contract.model.ISprite;
 import contract.model.SpriteType;
@@ -8,6 +10,7 @@ import model.element.Background;
 public class EnemyMove implements IEnemyMove {
 	private int ligne = 0, colonne = 0;
 	private boolean gameOver = false;
+	Random rand = new Random();
 
 	/* (non-Javadoc)
 	 * @see view.IMonsterMove#toMoveTheMonsters(view.ISprite[][])
@@ -35,14 +38,43 @@ public class EnemyMove implements IEnemyMove {
 						moveRight(sprites,sprit);
 						gameOver();
 					}
-					else if (isSpriteNearToBackground(sprites[ligne - 1][colonne])){
+				/*	else if (isSpriteNearToBackground(sprites[ligne - 1][colonne]) 
+							&& sprit.getDirection()==1){
 						moveUp(sprites,sprit);
 					}	
-					else if (isSpriteNearToBackground(sprites[ligne][colonne + 1])){
+					else if (isSpriteNearToBackground(sprites[ligne][colonne + 1])
+							&& sprit.getDirection()==4){
 						moveRight(sprites,sprit);
 					}				
-					else if (isSpriteNearToBackground(sprites[ligne + 1][colonne])){
+					else if (isSpriteNearToBackground(sprites[ligne + 1][colonne])
+							&& sprit.getDirection()==2){
 						moveDown(sprites,sprit);
+					}				
+					else if (isSpriteNearToBackground(sprites[ligne][colonne - 1])
+							&& sprit.getDirection()==3){
+						moveLeft(sprites,sprit);
+					}*/
+					else {
+						int random = rand.nextInt(4)+1;
+						
+						switch(random) {
+						case 1: 
+							 if (isSpriteNearToBackground(sprites[ligne - 1][colonne]))
+									 moveUp(sprites,sprit);
+							break;						
+						case 2: 
+							 if (isSpriteNearToBackground(sprites[ligne + 1][colonne]))
+								 	moveDown(sprites,sprit);
+							break;
+						case 3: 
+							if (isSpriteNearToBackground(sprites[ligne][colonne + 1]))
+									moveRight(sprites,sprit);
+							break;
+						case 4: 
+							if (isSpriteNearToBackground(sprites[ligne][colonne - 1]))
+									moveLeft(sprites,sprit);
+							break;
+						}
 					}
 					}
 				}
