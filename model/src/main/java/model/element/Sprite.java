@@ -8,7 +8,6 @@ import contract.model.SpriteType;
 
 public abstract class Sprite implements ISprite {
 	protected Image image;
-	protected static int animate=0;
 	protected int x = 0, y = 0;
 	protected Permeability permeability;
 	protected SpriteType type;
@@ -17,20 +16,11 @@ public abstract class Sprite implements ISprite {
 	protected boolean isNearCharacter = false;
 	protected boolean wasAboveCharacter = false;
 	private int direction = 0;
-	
-	
-	public static int getAnimate() {
-		return animate;
-	}
-
-
-	public static void setAnimate(int animate) {
-		Sprite.animate = animate;
-	}
 
 	/**
 	 * @return x the position on the X axle
 	 */
+	@Override
 	public int getX() {
 		return x;
 	}
@@ -40,6 +30,7 @@ public abstract class Sprite implements ISprite {
 	 * @param x
 	 *            the position on the X axle
 	 */
+	@Override
 	public void setX(int x) {
 		this.x = x;
 	}
@@ -47,6 +38,7 @@ public abstract class Sprite implements ISprite {
 	/**
 	 * @return y the position on the Y axle
 	 */
+	@Override
 	public int getY() {
 		return y;
 	}
@@ -55,6 +47,7 @@ public abstract class Sprite implements ISprite {
 	 * @param y
 	 *            the position on the Y axle
 	 */
+	@Override
 	public void setY(int y) {
 		this.y = y;
 	}
@@ -62,6 +55,7 @@ public abstract class Sprite implements ISprite {
 	/**
 	 * @return image the path of the file were the picture is stored
 	 */
+	@Override
 	public Image getImage() {
 		return image;
 	}
@@ -77,6 +71,7 @@ public abstract class Sprite implements ISprite {
 	/* (non-Javadoc)
 	 * @see view.ISprite#getPermeability()
 	 */
+	@Override
 	public Permeability getPermeability() {
 		return permeability;
 	}
@@ -84,6 +79,7 @@ public abstract class Sprite implements ISprite {
 	/* (non-Javadoc)
 	 * @see view.ISprite#setPermeability(model.Permeability)
 	 */
+	@Override
 	public void setPermeability(Permeability permeability) {
 		this.permeability = permeability;
 	}
@@ -91,6 +87,7 @@ public abstract class Sprite implements ISprite {
 	/* (non-Javadoc)
 	 * @see view.ISprite#getType()
 	 */
+	@Override
 	public SpriteType getType() {
 		return type;
 	}
@@ -98,6 +95,7 @@ public abstract class Sprite implements ISprite {
 	/* (non-Javadoc)
 	 * @see view.ISprite#isHasMoved()
 	 */
+	@Override
 	public boolean HasMoved() {
 		return hasMoved;
 	}
@@ -105,6 +103,7 @@ public abstract class Sprite implements ISprite {
 	/* (non-Javadoc)
 	 * @see view.ISprite#setHasMoved(boolean)
 	 */
+	@Override
 	public void setHasMoved(boolean hasMoved ) {
 		this.hasMoved = hasMoved;
 	}
@@ -112,32 +111,38 @@ public abstract class Sprite implements ISprite {
 	/* (non-Javadoc)
 	 * @see view.ISprite#getDirection()
 	 */
+	@Override
 	public int getDirection() {
 		return direction;
 	}
 	/* (non-Javadoc)
 	 * @see view.ISprite#setDirection(int)
 	 */
+	@Override
 	public void setDirection(int direction) {
 		this.direction = direction;
 	}
 
 
-	public boolean isWasAboveCharacter() {
+	@Override
+	public boolean wasAboveCharacter() {
 		return wasAboveCharacter;
 	}
 
 
+	@Override
 	public void setWasAboveCharacter(boolean wasAboveCharacter) {
 		this.wasAboveCharacter = wasAboveCharacter;
 	}
 
 
+	@Override
 	public boolean isBlocked() {
 		return blocked;
 	}
 
 
+	@Override
 	public void setBlocked(boolean blocked) {
 		this.blocked = blocked;
 	}

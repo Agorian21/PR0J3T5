@@ -36,6 +36,7 @@ public class Move implements IMove {
 	 * @param sprite
 	 * @return sprites
 	 */
+	@Override
 	public ISprite[][] digLeft(int colonne, int ligne, ISprite sprite) {
 		GoLeft left = new GoLeft(sprites, ligne, panel);
 		return left.goLeft(colonne, ligne, sprite, this.sprites, this.panel);
@@ -50,6 +51,7 @@ public class Move implements IMove {
 	 * @param sprite
 	 * @return sprites
 	 */
+	@Override
 	public ISprite[][] digRight(int colonne, int ligne, ISprite sprite) {
 		GoRight right = new GoRight(sprites, ligne, panel);
 		return right.goRight(colonne, ligne, sprite, this.sprites, this.panel);
@@ -63,6 +65,7 @@ public class Move implements IMove {
 	 * @param sprite
 	 * @return sprites
 	 */
+	@Override
 	public ISprite[][] digUp(int colonne, int ligne, ISprite sprite) {
 		GoUp up = new GoUp(sprites, ligne, panel);
 		return up.goUp(colonne, ligne, sprite, this.sprites, this.panel);
@@ -77,13 +80,14 @@ public class Move implements IMove {
 	 * @param sprite
 	 * @return sprites
 	 */
+	@Override
 	public ISprite[][] digDown(int colonne, int ligne, ISprite sprite) {
 		GoDown down = new GoDown(sprites, ligne, panel);
 		return down.goDown(colonne, ligne, sprite, this.sprites, this.panel);
 	}
 
 	/**
-	 * return true if the sprite is BLOCKING
+	 * return true if the sprite permeability is BLOCKING
 	 * @param sprite
 	 * @return boolean
 	 */
@@ -112,6 +116,7 @@ public class Move implements IMove {
 	/* (non-Javadoc)
 	 * @see view.IMove#nextToBackground(view.ISprite)
 	 */
+	@Override
 	public Boolean nextToBackground(ISprite sprite) {
 		return sprite.getType() == SpriteType.BACKGROUND;
 	}
@@ -137,6 +142,7 @@ public class Move implements IMove {
 	/* (non-Javadoc)
 	 * @see view.IMove#gameOver()
 	 */
+	@Override
 	public void gameOver(boolean gameOver) {
 		Move.gameOver = gameOver;
 	}
@@ -144,6 +150,7 @@ public class Move implements IMove {
 	/* (non-Javadoc)
 	 * @see view.IMove#isGameOver()
 	 */
+	@Override
 	public boolean isGameOver() {
 		return gameOver;
 	}
@@ -151,6 +158,7 @@ public class Move implements IMove {
 	/* (non-Javadoc)
 	 * @see view.IMove#isVictory()
 	 */
+	@Override
 	public boolean isVictory() {
 		return victory;
 	}
@@ -159,6 +167,7 @@ public class Move implements IMove {
 	 * @see view.IMove#setVictory(boolean)
 	 */
 	
+	@Override
 	public void setVictory(boolean victory) {
 		Move.victory = victory;
 	}

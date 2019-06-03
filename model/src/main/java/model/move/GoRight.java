@@ -20,15 +20,13 @@ public class GoRight extends Move {
 
 	
 	/**
-	 * Tries to move the character right, if he cross a diamond he will collect
-	 * it, if it's an opened exit he will win, if it's a monster he will die, if
-	 * it's a BLOCKING sprite he wouldn't move, otherwise he will go right
+	 * Player right movement, it either collects a diamond, wins the game, dies, moves to the right or get
+	 * blocked depending on the element on its right.
 	 * @param colonne
 	 * @param ligne
 	 * @param sprite
 	 * @param sprites
 	 * @param panel
-	 * @param audio
 	 * @return
 	 */
 	public ISprite[][] goRight(int colonne, int ligne, ISprite sprite, ISprite[][] sprites, IPanel panel) {

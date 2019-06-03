@@ -3,8 +3,6 @@ package controller;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.util.Observable;
-import java.util.Observer;
 
 import javax.imageio.ImageIO;
 
@@ -17,7 +15,7 @@ import contract.view.IPanel;
 import model.move.Move;
 import view.MapConstructor;
 
-public class Controller implements IController, Observer {
+public class Controller implements IController {
 	private ControllerOrder stackOrder = ControllerOrder.NOP;
 	private int SET_SIZE = 0, colonne = 0, ligne = 0, finalDiamonds = 0;
 	private IPanel panel;
@@ -53,10 +51,10 @@ public class Controller implements IController, Observer {
 	 * move the character
 	 */
 
+	@Override
 	public final void directionControl() throws InterruptedException {
 		if (sprite.getType() == SpriteType.PLAYER) {
 
-			Thread.sleep(10);
 			move.setVictory(false);
 			move.gameOver(false);
 
@@ -93,7 +91,6 @@ public class Controller implements IController, Observer {
 				end.victory();
 			}
 			stackOrder = ControllerOrder.NOP;
-			panel.update();
 		}
 	}
 
@@ -109,29 +106,14 @@ public class Controller implements IController, Observer {
 	 * 
 	 * @see controller.IController#setStackOrder(model.UserOrder)
 	 */
+	@Override
 	public void setStackOrder(ControllerOrder stackOrder) {
 		this.stackOrder = stackOrder;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 */
-	@Override
-	public void update(Observable obs, Object obj) {
-	/*	if (obs instanceof VKeyListener) {
-			try {
-				directionControl();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}*/
-	}
 
 	/**
-	 * Permit to exit
+	 * It sets the exit's permeability to permeable
 	 * 
 	 * @param sprites
 	 */

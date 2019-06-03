@@ -13,10 +13,10 @@ public class MapMatrix implements IMapMatrix {
 	private SpriteType map[][] = new SpriteType[25][25];
 
 	/**
-	 * The constructor of TranslateMap
+	 * The constructor of MapMatrix
 	 * 
 	 * @param tab
-	 *            the character table which contains the map in the form of
+	 *            the character arrey which contains the map in the form of
 	 *            characters
 	 * @throws IOException
 	 */
@@ -36,7 +36,7 @@ public class MapMatrix implements IMapMatrix {
 
 
 		/*
-		 * Fill a two-dimensional Image table in terms of what contains tab
+		 * Fill a two-dimensional array 
 		 */
 		int ligne = 0, colonne = 0;
 		for (char sousTab[] : tab) {
@@ -58,7 +58,7 @@ public class MapMatrix implements IMapMatrix {
 	}
 
 	/**
-	 * @return map a two-dimensional SpriteType table which contains the map in
+	 * @return map a two-dimensional SpriteType array which contains the map in
 	 *         the form of enum
 	 */
 	public SpriteType[][] getMap() {
@@ -68,6 +68,7 @@ public class MapMatrix implements IMapMatrix {
 	/* (non-Javadoc)
 	 * @see view.ITranslateMap#getCharacterX()
 	 */
+	@Override
 	public int getCharacterX() {
 		return characterX;
 	}
@@ -75,6 +76,7 @@ public class MapMatrix implements IMapMatrix {
 	/* (non-Javadoc)
 	 * @see view.ITranslateMap#getCharacterY()
 	 */
+	@Override
 	public int getCharacterY() {
 		return characterY;
 	}

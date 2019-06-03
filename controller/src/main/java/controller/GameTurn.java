@@ -14,7 +14,13 @@ public class GameTurn {
 	private IPanel panel;
 	private EndTheGame end;
 	private boolean loop = true;
-
+/**
+ * Constructor of GameTurn
+ * @param maker
+ * @param panel
+ * @param end
+ * @param controller
+ */
 	public GameTurn(MapConstructor maker, IPanel panel, EndTheGame end,Controller controller) {
 		this.maker = maker;
 		this.panel = panel;
@@ -24,6 +30,11 @@ public class GameTurn {
 		enemyMove = new EnemyMove();
 	}
 
+	/**
+	 * The loop of the game which moves every movable elements every
+	 * 250ms 
+	 * @throws InterruptedException
+	 */
 	public void loop() throws InterruptedException {
 		while (loop) {
 			Thread.sleep(250);

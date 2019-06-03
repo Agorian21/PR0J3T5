@@ -51,7 +51,6 @@ public class Run implements LvlObservator {
 								maker.getCharacter(matrix.getCharacterX(), matrix.getCharacterY()),
 								window.getPanel(), SET_SIZE, maker, DBQueries.getDiamondRequired(), end);
 
-						vkeyListener.addObserver(controller);
 						vkeyListener.setController(controller);
 
 						GameTurn gameTurn = new GameTurn(maker, window.getPanel(), end, controller);

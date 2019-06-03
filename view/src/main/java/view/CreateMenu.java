@@ -10,8 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -22,7 +20,7 @@ import contract.view.ICreateMenu;
 import contract.view.LvlObservator;
 
 
-public class CreateMenu extends JFrame implements Observer, ICreateMenu {
+public class CreateMenu extends JFrame implements  ICreateMenu {
 
 	private static final long serialVersionUID = 1L;
 	private int choice = 0;
@@ -100,11 +98,6 @@ public class CreateMenu extends JFrame implements Observer, ICreateMenu {
 	@Override
 	public int getChoice() {
 		return choice;
-	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		this.menuPanel.update();	
 	}
 	
 	public void draw(Graphics g){

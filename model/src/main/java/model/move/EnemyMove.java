@@ -15,6 +15,7 @@ public class EnemyMove implements IEnemyMove {
 	/* (non-Javadoc)
 	 * @see view.IMonsterMove#toMoveTheMonsters(view.ISprite[][])
 	 */
+	@Override
 	public ISprite[][] toMoveTheEnemies(ISprite[][] sprites) {
 		ligne = 0;
 		for (ISprite sousSprit[] : sprites) {
@@ -143,6 +144,7 @@ public class EnemyMove implements IEnemyMove {
 	/* (non-Javadoc)
 	 * @see view.IMonsterMove#isSpriteNearToBackground(view.ISprite)
 	 */
+	@Override
 	public Boolean isSpriteNearToBackground(ISprite sprites) {
 		return sprites.getType() == SpriteType.BACKGROUND;
 	}
@@ -150,14 +152,17 @@ public class EnemyMove implements IEnemyMove {
 	/* (non-Javadoc)
 	 * @see view.IMonsterMove#isSpriteNearCharacter(view.ISprite)
 	 */
+	@Override
 	public Boolean isSpriteNearCharacter(ISprite sprites) {
 		return sprites.getType() == SpriteType.PLAYER;
 	}
 
+	@Override
 	public void gameOver() {
 		gameOver = true;
 	}
 
+	@Override
 	public boolean isGameOver() {
 		return gameOver;
 	}

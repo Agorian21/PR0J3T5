@@ -45,14 +45,14 @@ public class Gravity implements IGravity {
 							sprites[ligne + 1][colonne] = sprit;
 						}
 					} else if (isSpriteAboveCharacter(sprites[ligne + 1][colonne]) && !sprit.HasMoved()
-							&& sprit.isWasAboveCharacter() && !sprit.isBlocked()) {
+							&& sprit.wasAboveCharacter() && !sprit.isBlocked()) {
 						sprites[ligne][colonne] = new Background(sprit.getX(), sprit.getY());
 						sprit.setY(sprit.getY() + 16);
 						sprit.setHasMoved(true);
 						sprites[ligne + 1][colonne] = sprit;
 						gameOver();
 					} else if (isSpriteAboveCharacter(sprites[ligne + 1][colonne]) && !sprit.HasMoved()
-							&& !sprit.isWasAboveCharacter()) {
+							&& !sprit.wasAboveCharacter()) {
 						sprit.setWasAboveCharacter(true);
 						sprit.setBlocked(true);
 					} else if(isSpriteAboveDirt(sprites[ligne + 1][colonne])){

@@ -1,5 +1,5 @@
 /**
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Jerome, Adrien, Raphaël, Joachim
  * @version 1.0
  */
 package main;
@@ -11,7 +11,7 @@ import controller.Run;
 /**
  * The Class Main.
  *
- * @author Jean-Aymeric Diet
+ * @author Jerome, Adrien, Raphaël, Joachim
  */
 public abstract class Main {
 

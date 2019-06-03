@@ -25,16 +25,14 @@ public class GoDown extends Move {
 	}
 
 	/**
-	 * Tries to move the character down, if he cross a diamond he will collect
-	 * it, if it's an opened exit he will win, if it's a monster he will die, if
-	 * it's a BLOCKING sprite he wouldn't move, otherwise he will go down
+	 * Player down movement, it either collects a diamond, wins the game, dies, moves down or get
+	 * blocked depending on the element under it.
 	 * 
 	 * @param colonne
 	 * @param ligne
 	 * @param sprite
 	 * @param sprites
 	 * @param panel
-	 * @param audio
 	 * @return sprites
 	 */
 	public ISprite[][] goDown(int colonne, int ligne, ISprite sprite, ISprite[][] sprites, IPanel panel) {

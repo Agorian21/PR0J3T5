@@ -26,7 +26,15 @@ public interface IPanel {
 	 */
 	public void setDiamondsGet(int diamondsGet);
 	
+	/**
+	 * Getter of Score
+	 * @return Score
+	 */
 	public int getScore();
 
+	/**
+	 * Setter of Score
+	 * @param score
+	 */
 	public void setScore(int score);
 }

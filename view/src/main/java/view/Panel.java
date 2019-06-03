@@ -28,12 +28,6 @@ public class Panel extends JPanel implements Serializable, IPanel {
 		this.finalDiamonds = finalDiamonds;
 	}
 
-	/**
-	 * Calls the draw functions of MapMaker
-	 * 
-	 * @param g
-	 * 
-	 */
 	public void counterDiamond(Graphics g){
 		g.setFont(font);
 		g.setColor(Color.black);
@@ -57,6 +51,7 @@ public class Panel extends JPanel implements Serializable, IPanel {
 	/* (non-Javadoc)
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
+	@Override
 	public void paintComponent(Graphics g) {
 		this.updateCount(g);
 		this.counterDiamond(g);
@@ -72,18 +67,22 @@ public class Panel extends JPanel implements Serializable, IPanel {
 		this.repaint();
 	}
 
+	@Override
 	public int getDiamondsGet() {
 		return diamondsGet;
 	}
 
+	@Override
 	public void setDiamondsGet(int diamondsGet) {
 		this.diamondsGet = diamondsGet;
 	}
 
+	@Override
 	public int getScore() {
 		return score;
 	}
 
+	@Override
 	public void setScore(int score) {
 		this.score = score;
 	}

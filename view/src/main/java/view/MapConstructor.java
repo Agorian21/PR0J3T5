@@ -32,12 +32,13 @@ public class MapConstructor implements IMapConstructor {
 	}
 
 	/**
-	 * Create the 880 sprites who are in the map and give then their position.
-	 * Then he put them in the tab sprites.
+	 * It creates the sprites which are in the map and give their position.
+	 * Then they're put in the sprites array.
 	 * 
 	 * @param SET_SIZE
 	 *            the size of a sprite
 	 */
+	@Override
 	public void spritesCreation(final int SET_SIZE) {
 		ligne = 0;
 		for (SpriteType sousSpitTp[] : map) {
@@ -81,11 +82,12 @@ public class MapConstructor implements IMapConstructor {
 	}
 
 	/**
-	 * Show the 880 sprites and their position
+	 * It displays the sprites and their position
 	 * 
 	 * @param g
 	 * 
 	 */
+	@Override
 	public void drawMap(Graphics g) {
 		for (ISprite[] sousSpit : sprites) {
 			for (ISprite spit : sousSpit) {
@@ -96,16 +98,18 @@ public class MapConstructor implements IMapConstructor {
 
 	/**
 	 * 
-	 * @return a two-dimensional table of Sprite
+	 * @return a two-dimensional array of Sprite
 	 */
+	@Override
 	public ISprite[][] getSprites() {
 		return sprites;
 	}
 
 	/**
 	 * 
-	 * @return a Sprite in the two-dimensional table
+	 * @return a Sprite in the two-dimensional array
 	 */
+	@Override
 	public ISprite getCharacter(int colonne, int ligne) {
 		return sprites[ligne][colonne];
 	}
@@ -113,6 +117,7 @@ public class MapConstructor implements IMapConstructor {
 	/* (non-Javadoc)
 	 * @see view.IMapMaker#setSprites(view.ISprite[][])
 	 */
+	@Override
 	public void setSprites(ISprite[][] sprites) {
 		this.sprites = sprites;
 	}
@@ -120,6 +125,7 @@ public class MapConstructor implements IMapConstructor {
 	/* (non-Javadoc)
 	 * @see view.IMapMaker#setAllHasMovedToFalse(view.ISprite[][])
 	 */
+	@Override
 	public void setAllHasMovedToFalse(ISprite[][] sprites) {
 		for (ISprite sousSpit[] : sprites) {
 			for (ISprite spit : sousSpit) {

@@ -22,9 +22,8 @@ public class EndTheGame {
 	}
 	
 	/**
-	 * Execute the gameOver routine
+	 * Execute the gameOver 
 	 * 
-	 * @param audio
 	 */
 	public void gameOver(){
 		panel.update();
@@ -33,7 +32,7 @@ public class EndTheGame {
 	}
 	
 	/**
-	 * Execute the victory routine
+	 * Execute the victory 
 	 */
 	public void victory(){
 		panel.update();

@@ -6,7 +6,7 @@ import contract.model.ISprite;
 
 public interface IMapConstructor {
 	/**
-	 * Fill a Sprite table in terms of a SpriteType table
+	 * Fill a Sprite array in terms of a SpriteType table
 	 * @param SET_SIZE
 	 */
 	public void spritesCreation(final int SET_SIZE);
@@ -38,7 +38,7 @@ public interface IMapConstructor {
 	public void setSprites(ISprite[][] sprites);
 	
 	/**
-	 * Set the attribute HasMoved to false
+	 * Set the attribute HasMoved to false for every object in the matrix
 	 * @param sprites
 	 */
 	public void setAllHasMovedToFalse(ISprite[][] sprites);

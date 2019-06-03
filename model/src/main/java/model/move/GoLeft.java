@@ -19,16 +19,14 @@ public class GoLeft extends Move {
 	}
 
 	/**
-	 * Tries to move the character left, if he cross a diamond he will collect
-	 * it, if it's an opened exit he will win, if it's a monster he will die, if
-	 * it's a BLOCKING sprite he wouldn't move, otherwise he will go left
+	 * Player left movement, it either collects a diamond, wins the game, dies, moves left or get
+	 * blocked depending on the element on its left.
 	 * 
 	 * @param colonne
 	 * @param ligne
 	 * @param sprite
 	 * @param sprites
 	 * @param panel
-	 * @param audio
 	 * @return sprites
 	 */
 	public ISprite[][] goLeft(int colonne, int ligne, ISprite sprite, ISprite[][] sprites, IPanel panel) {

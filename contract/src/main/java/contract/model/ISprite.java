@@ -2,8 +2,6 @@ package contract.model;
 
 import java.awt.Image;
 
-import contract.model.Permeability;
-
 public interface ISprite {
 	
 	/**
@@ -83,7 +81,7 @@ public interface ISprite {
 	 */
 	public void setDirection(int direction);
 	
-	public boolean isWasAboveCharacter();
+	public boolean wasAboveCharacter();
 
 	public void setWasAboveCharacter(boolean wasAboveCharacter);
 	

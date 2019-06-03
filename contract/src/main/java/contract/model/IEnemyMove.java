@@ -2,7 +2,7 @@ package contract.model;
 
 public interface IEnemyMove {
 	/**
-	 * Make the monsters move
+	 * Make the enemies move
 	 * @param sprites
 	 * @param audio
 	 * @return sprites
@@ -22,7 +22,7 @@ public interface IEnemyMove {
 	public void gameOver();
 
 	/**
-	 * verify if the sprite is the character
+	 * verify if the sprite is the player
 	 * @param sprite
 	 * @return boolean
 	 */

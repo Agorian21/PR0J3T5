@@ -3,42 +3,42 @@ package contract.model;
 public interface IMove {
 	
 	/**
-	 * Move the character to the left and replace the old position by background
+	 * Move the player to the left and replace the old position by a background object
 	 * @param colonne
 	 * @param ligne
 	 * @param sprite
 	 * @param audio
-	 * @return table who contains the modified map
+	 * @return array which contains the modified map
 	 */
 	public ISprite[][] digLeft(int colonne, int ligne, ISprite sprite);
 
 	/**
-	 * Move the character to the right and replace the old position by background
+	 * Move the player to the right and replace the old position by a background object
 	 * @param colonne
 	 * @param ligne
 	 * @param sprite
 	 * @param audio
-	 * @return table who contains the modified map
+	 * @return array which contains the modified map
 	 */
 	public ISprite[][] digRight(int colonne, int ligne, ISprite sprite);
 
 	/**
-	 * Move the character up and replace the old position by background
+	 * Move the player up and replace the old position by a background object
 	 * @param colonne
 	 * @param ligne
 	 * @param sprite
 	 * @param audio
-	 * @return table who contains the modified map
+	 * @return array which contains the modified map
 	 */
 	public ISprite[][] digUp(int colonne, int ligne, ISprite sprite);
 	
 	/**
-	 * Move the character down and replace the old position by background
+	 * Move the player down and replace the old position by a background object
 	 * @param colonne
 	 * @param ligne
 	 * @param sprite
 	 * @param audio
-	 * @return table who contains the modified map
+	 * @return array which contains the modified map
 	 */
 	public ISprite[][] digDown(int colonne, int ligne, ISprite sprite);
 	
@@ -64,7 +64,7 @@ public interface IMove {
 	public void setVictory(boolean victory);
 	
 	/**
-	 * Looks if the sprite is a background
+	 * Verify if the sprite is a background
 	 * @param sprite
 	 * @return
 	 */
