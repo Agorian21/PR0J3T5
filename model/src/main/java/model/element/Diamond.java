@@ -18,8 +18,16 @@ public class Diamond extends Sprite {
 	public Diamond(int x, int y) {
 		super();
 		this.permeability = Permeability.PERMEABLE;
+		if ((x/16)<=0 || (x/16)>=24) {
+			throw new IllegalArgumentException("X out of range");
+		}
 		this.x = x;
+			
+		if ((y/16)<=0 || (y/16)>=24) {
+			throw new IllegalArgumentException("Y out of range");
+		}
 		this.y = y;
+		
 		this.type = SpriteType.DIAMOND;
 		
 		try {
