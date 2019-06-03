@@ -1,3 +1,4 @@
-# JPU-BlankProject
+# Boulder Dash
 
-Base de démarrage pour le projet Jave/POO/UML des 1ières années Exia-Cesi
+Jeu réalisé pour le projet Java/POO/UML des 1ère années Exia Cesi 
+par Basset Adrien, Christophe Raphaël, Huart Joachim et Pihet Jérôme
