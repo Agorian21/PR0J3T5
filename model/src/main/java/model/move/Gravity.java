@@ -16,6 +16,7 @@ public class Gravity implements IGravity {
 	 * 
 	 * @see view.IGravity#makeThemFall(view.ISprite[][])
 	 */
+	@Override
 	public ISprite[][] makeThemFall(ISprite[][] sprites, IPanel panel) {
 		ligne = 0;
 		for (ISprite sousSprit[] : sprites) {
@@ -70,6 +71,7 @@ public class Gravity implements IGravity {
 	 * 
 	 * @see view.IGravity#makeThemSlide(view.ISprite[][])
 	 */
+	@Override
 	public ISprite[][] makeThemSlide(ISprite[][] sprites) {
 		ligne = 0;
 		for (ISprite sousSprit[] : sprites) {
@@ -89,6 +91,9 @@ public class Gravity implements IGravity {
 						sprit.setX(sprit.getX() - 16);
 						sprites[ligne][colonne - 1] = sprit;
 						sprit.setHasMoved(true);	
+					}
+					else {
+						sprit.setBlocked(true);
 					}
 				}
 				colonne++;
@@ -113,6 +118,7 @@ public class Gravity implements IGravity {
 	 * 
 	 * @see view.IGravity#isSpriteNextToBackground(view.ISprite)
 	 */
+	@Override
 	public Boolean isSpriteNextToBackground(ISprite sprite) {
 		return sprite.getType() == SpriteType.BACKGROUND;
 	}
@@ -159,6 +165,7 @@ public class Gravity implements IGravity {
 	 * 
 	 * @see view.IGravity#isGameOver()
 	 */
+	@Override
 	public boolean isGameOver() {
 		return gameOver;
 	}
