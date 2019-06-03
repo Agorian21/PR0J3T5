@@ -3,13 +3,22 @@ package dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/**
+ * The class DBMap which return an array with the selected map inside
+ * @author Jerome
+ *
+ */
 public class DBMap extends DBConnection{
 	
 	public DBMap(int lvl) {
 		super(lvl);
 	}
-	
+	/**
+	 * Call a procedure to get the map
+	 * @param result
+	 * @param statement
+	 * @return
+	 */
 	public ResultSet getMap(ResultSet result, Statement statement) {
 		try {
 			switch(lvl) {
@@ -40,7 +49,12 @@ public class DBMap extends DBConnection{
 		return result;
 	}
 	
-	public void setMapQueryIntoTable(ResultSet result, char[][] tab) {
+	/**
+	 * Turns the result into an array of character which is used to generate the Matrix
+	 * @param result
+	 * @param tab
+	 */
+	public void setMapQueryIntoArray(ResultSet result, char[][] tab) {
 		try {
 			while (result.next()) {
 				int x = result.getInt("x");

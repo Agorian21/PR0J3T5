@@ -4,9 +4,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * The Class DBConnection.
+ * The Class DBQuerries.
  *
- * @author Jean-Aymeric Diet
+ * @author Jerome
  */
  public class DBQueries {
 
@@ -26,7 +26,7 @@ import java.sql.Statement;
 
 	
 	/**
-	 * Open.
+	 * It creates a new connection, gets the map and then transforms it in an Array of char
 	 *
 	 * @return the boolean
 	 */
@@ -36,24 +36,30 @@ import java.sql.Statement;
 		
 		map = new DBMap(lvl);
 		result= map.getMap(result, statement);
-		map.setMapQueryIntoTable(result, tab);
+		map.setMapQueryIntoArray(result, tab);
 		
 	}
 
-	/**
-	 * Gets the connection.
-	 *
-	 * @return the connection
-	 */
-	
+/**
+ * Getter of Tab
+ * @return Tab
+ */
 	public char[][] getTab() {
 		return tab;
 	}
 
+	/**
+	 * Getter of DiamondRequired
+	 * @return DiamondRequired
+	 */
 	public static int getDiamondRequired() {
 		return diamondRequired;
 	}
 
+	/**
+	 * Setter of DiamondRequired
+	 * @param diamondRequired
+	 */
 	public static void setDiamondRequired(int diamondRequired) {
 		DBConnection.diamondRequired = diamondRequired;
 	}
