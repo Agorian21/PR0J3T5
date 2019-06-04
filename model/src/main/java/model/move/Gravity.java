@@ -30,7 +30,8 @@ public class Gravity implements IGravity {
 							for (int i=-1;i<=1;i++) {
 								for (int j=-1;j<=1;j++) {
 									if ((ligne+1+i>0) && (ligne+1+i<25) && (ligne+1+j>0) && (ligne+1+j<25)) {
-										if (sprites[ligne + 1 + i][colonne + j].getType() != SpriteType.WALL) {
+										if (sprites[ligne + 1 + i][colonne + j].getType() != SpriteType.WALL
+												&& sprites[ligne + 1 + i][colonne + j].getType() != SpriteType.PLAYER) {
 											sprites[ligne + 1 + i][colonne + j] = new Diamond(sprit.getX()+(j*16), sprit.getY()+16+(i*16));
 										}
 									}	
@@ -42,6 +43,8 @@ public class Gravity implements IGravity {
 							sprit.setY(sprit.getY() + 16);
 							sprit.setHasMoved(true);
 							sprit.setBlocked(false);
+							sprit.setWasAboveCharacter(true);
+
 							sprites[ligne + 1][colonne] = sprit;
 						}
 					} else if (isSpriteAboveCharacter(sprites[ligne + 1][colonne]) && !sprit.HasMoved()
@@ -85,12 +88,14 @@ public class Gravity implements IGravity {
 							sprit.setX(sprit.getX() + 16);
 							sprites[ligne][colonne + 1] = sprit;
 							sprit.setHasMoved(true);
+							sprit.setWasAboveCharacter(true);
 					} else if (isSpriteNextToBackground(sprites[ligne][colonne - 1])
 							&& isSpriteNextToBackground(sprites[ligne + 1][colonne - 1])) {
 						sprites[ligne][colonne] = new Background(sprit.getX(), sprit.getY());
 						sprit.setX(sprit.getX() - 16);
 						sprites[ligne][colonne - 1] = sprit;
 						sprit.setHasMoved(true);	
+						sprit.setWasAboveCharacter(true);
 					}
 					else {
 						sprit.setBlocked(true);
